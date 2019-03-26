@@ -22,11 +22,11 @@ function addToHomescreen() {
       if (choiceResult.outcome === 'accepted') {
         promtResult.innerText = "accepted";
         // send accepted event to GA
-        gtag('event', 'accepted', { event_category: 'A2HS' });
+        ga('send', 'event', 'A2HS', 'accepted');
       } else {
         promtResult.innerText = "dismissed";
         // send dismissed event to GA
-        gtag('event', 'dismissed', { event_category: 'A2HS' });
+        ga('send', 'event', 'A2HS', 'dismissed');
         a2hs.disabled = true;
       }
       deferredPrompt = null;
@@ -53,14 +53,11 @@ function checkServiceWorkerStatus() {
 
 function checkIfOpenedFromHomescreen() {
   let urlParams = new URLSearchParams(window.location.search);
-  let fromHS = urlParams.has('pwa');
-  if (fromHS)  {
-  	fromPWA.innerText = 'True';
-  	// set dimension (session) 
-  	gtag('set', dimension2, 'pwa');
-  }
+  let fromHS = urlParams.has('utm_source');
+  if (fromHS)
+    fromPWA.innerText = 'True';
   else
-  	fromPWA.innerText = 'False';
+    fromPWA.innerText = 'False';
   log(`checkIfOpenedFromHomescreen() = ${fromHS}`);
   return fromHS;
 }

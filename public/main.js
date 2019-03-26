@@ -1,10 +1,10 @@
 let fromPWA = document.getElementById('fromPWA');
 let beforeinstallpromptSpan = document.getElementById('beforeinstallprompt');
 let promtResult = document.getElementById('promtResult');
-
 let a2hs = document.getElementById('a2hs');
 let installSWBtn = document.getElementById('installSW');
 let swStatus = document.getElementById('swStatus');
+let appinstalled = document.getElementById('appinstalled');
 
 installSWBtn.addEventListener('click', installSW);
 a2hs.addEventListener('click', addToHomescreen);
@@ -32,6 +32,11 @@ function addToHomescreen() {
       deferredPrompt = null;
     });
 }
+
+window.addEventListener('appinstalled', (evt) => {
+  log('appinstalled');
+  appinstalled.innerText = 'True';
+});
 
 function installSW() {
   log(`Installing SW`);

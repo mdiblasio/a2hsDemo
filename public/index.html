@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <link rel="stylesheet" href="/style.css" />
+  <script src="/main.js" defer></script>
+  <link rel="manifest" href="/manifest.json">
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-114121901-3"></script>
+  <script>
+  window.dataLayer = window.dataLayer || [];
+
+  function gtag() { dataLayer.push(arguments); }
+  gtag('js', new Date());
+
+  gtag('config', 'UA-114121901-3');
+  </script>
+
+  <title>SW Demo</title>
+
+</head>
+
+
+<body>
+  <h1>A2HS Demo</h1>
+  <section>
+    <button id="installSW">Install SW</button>
+    <button id="a2hs" disabled>Add to Homescreen</button>
+    <br/>
+
+    <div class="row">
+      <span class="label">Service worker status</span>
+      <span class="value" id="swStatus"></span>
+    </div>
+    <div class="row">
+      <span class="label">Opened from PWA</span>
+      <span class="value" id="fromPWA">False</span>
+    </div>
+    <div class="row">
+      <span class="label">beforeinstallprompt received</span>
+      <span class="value" id="beforeinstallprompt"></span>
+    </div>
+    <div class="row">
+      <span class="label">Prompt Result</span>
+      <span class="value" id="promtResult"></span>
+    </div>
+  </section>
+</body>
+
+</html>
